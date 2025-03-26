@@ -47,5 +47,3 @@ print("Length of query: ", len(query_results))
 DB_FAISS_PATH = "vectorstore/db_faiss"
 db = FAISS.from_documents(text_chunks, embeddings)
 db.save_local(DB_FAISS_PATH)
-
-# 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
