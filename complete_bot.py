@@ -1,6 +1,7 @@
 import streamlit as st
 from langchain_core.prompts import PromptTemplate
-from langchain_community.embeddings import HuggingFaceEmbeddings
+# from langchain_community.embeddings import HuggingFaceEmbeddings
+from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_huggingface import HuggingFaceEndpoint
 from langchain.chains import RetrievalQA
 from langchain_community.vectorstores import FAISS
@@ -8,10 +9,11 @@ import os
 
 
 DB_FAISS_PATH = "vectorstore/db_faiss"
-st.cache_resource
+@st.cache_resource
 def get_vectorstore():
     embeddings = HuggingFaceEmbeddings(model_name = 'sentence-transformers/all-MiniLM-L6-v2')
     db=FAISS.load_local(DB_FAISS_PATH, embeddings, allow_dangerous_deserialization=True)
+    st.write("Vectorstore loaded successfully!")
     return db
 
 def set_custom_prompt(custom_prompt_template):
@@ -45,15 +47,15 @@ def main():
         st.session_state.messages.append({'role': 'user', 'content': prompt})
 
         custom_prompt_template = """
-                Use the pieces of information provided in the context to answer user's question.
-                If you don't know the answer, just say that you don't know, don't try to make up an answer.
-                Don't provide anything out of the given context.
+            Use the pieces of information provided in the context to answer user's question.
+            If you don't know the answer, just say that you don't know, don't try to make up an answer.
+            Don't provide anything out of the given context.
 
-                Context: {context}
-                Question: {question}
+            Context: {context}
+            Question: {question}
 
-                Start the answer directly. No small talk please.
-                """
+            Start the answer directly. No small talk please.
+        """
         
         HUGGINGFACE_REPO_ID = "mistralai/Mistral-7B-Instruct-v0.3"
         HF_TOKEN = os.environ.get("HF_TOKEN")
@@ -63,23 +65,24 @@ def main():
         try:
             vectorstore=get_vectorstore()
             if vectorstore is None:
-                st.error("It's failed tp load vector store.")
+                st.error("Failed t0 load vector store.")
+                return
 
-                qa_chain = RetrievalQA.from_chain_type(
-                    llm=load_llm(HUGGINGFACE_REPO_ID),
-                    chain_type="stuff",
-                    retriever=vectorstore.as_retriever(search_kwargs={'k':3}),
-                    return_source_documents=True,
-                    chain_type_kwargs={'prompt': set_custom_prompt(custom_prompt_template)}
-                )
+            qa_chain = RetrievalQA.from_chain_type(
+                llm=load_llm(HUGGINGFACE_REPO_ID, HF_TOKEN),
+                chain_type="stuff",
+                retriever=vectorstore.as_retriever(search_kwargs={'k':3}),
+                return_source_documents=True,
+                chain_type_kwargs={'prompt': set_custom_prompt(custom_prompt_template)}
+            )
 
-                response = qa_chain.invoke({'query': prompt})
-                result = response["result"]
-                source_documents = response["source_documents"]
-                result_to_show = result + str(source_documents)
-                # response="Hi, I am MediBot!"
-                st.chat_message('assistant').markdown(result_to_show)
-                st.session_state.messages.append({'role': 'assistent', 'content': result_to_show})
+            response = qa_chain.invoke({'query': prompt})
+            result = response["result"]
+            source_documents = response["source_documents"]
+            result_to_show = result + "\n\n" + str(source_documents)
+            # response="Hi, I am MediBot!"
+            st.chat_message('assistant').markdown(result_to_show)
+            st.session_state.messages.append({'role': 'assistent', 'content': result_to_show})
 
         except Exception as e:
             st.error(f"Error: {str(e)}")
