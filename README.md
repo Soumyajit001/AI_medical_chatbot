@@ -14,7 +14,7 @@ Hugging Face account and API token (for accessing the LLM)
 Required Python libraries (listed in requirements.txt)
 
 
-## Installation
+# Installation
 
 ## Step 1:
 Clone the Repository
