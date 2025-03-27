@@ -93,16 +93,6 @@ http://localhost:8501.
 Enter your question in the chat input field and receive answers based on the PDF content.
 Project Structure
 
-ai-medical-chatbot/
-├── data/                  # Directory for PDF files
-├── vectorstore/           # Directory for FAISS vector store
-│   └── db_faiss/
-├── app.py                # Main Streamlit application
-├── process_pdfs.py       # Script to process PDFs and create vector store
-├── requirements.txt      # List of dependencies
-├── .env                  # Environment variables (e.g., HF_TOKEN)
-└── README.md             # This file
-
 ## How It Works:
 
 1. PDF Processing: PDFs are loaded and split into chunks of 500 characters with a 50-character overlap.
