@@ -75,6 +75,10 @@ Prepare Data
 Place your medical PDF files in the 'data/' directory.
 The chatbot will process all .pdf files in this folder.
 
+## Run the bot:
+```bash
+streamlit run complete_bot.py
+```
 
 ## Usage:
 1. Generate the Vector Store
