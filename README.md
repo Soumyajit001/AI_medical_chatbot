@@ -126,17 +126,21 @@ Input: "How to reduce stress?"
 Output: To reduce stress, one can follow a combination of lifestyle changes, diet, exercise, and relaxation techniques. Some stress-reducing systems include mental time out, deep breathing, meditation and singular focus, and gentle, repetitive exercise. It's important to understand the nature of stress and learn how to gain control over it. Recognizing that you are stressed is the first step towards understanding. The best stress reduction system is the one that works for the individual.
 
 Source Documents
+
 Document 1:
+
 Content Preview: reduce the stressor, and the other is to increase their resistance to it. Although there are many strategies to achieve each of these, all of them can be reduced to some variation of a single simple concept—relaxation. While there is no one single technique or therapy for everyone to use to manage a...
 
 Metadata: {'producer': 'PDFlib+PDI 6.0.3 (SunOS)', 'creator': 'Adobe Acrobat 6.0', 'creationdate': '2006-10-16T20:19:33+02:00', 'moddate': '2006-10-16T22:03:45+02:00', 'source': 'data\The-Gale-Encyclopedia-of-Medicine-3rd-Edition-staibabussalamsula.ac_.id_.pdf', 'total_pages': 4505, 'page': 3589, 'page_label': '3560'}
 
 Document 2:
+
 Content Preview: illness, then reducing stress should have the opposite effect and perhaps even encourage healing. Probably the most important step toward reducing the stress in everyone’s life is to understand the nature of stress and to learn how to condition ourselves to be able to gain some control over it. Bein...
 
 Metadata: {'producer': 'PDFlib+PDI 6.0.3 (SunOS)', 'creator': 'Adobe Acrobat 6.0', 'creationdate': '2006-10-16T20:19:33+02:00', 'moddate': '2006-10-16T22:03:45+02:00', 'source': 'data\The-Gale-Encyclopedia-of-Medicine-3rd-Edition-staibabussalamsula.ac_.id_.pdf', 'total_pages': 4505, 'page': 3588, 'page_label': '3559'}
 
 Document 3:
+
 Content Preview: exercise. Nearly all stress-reducing systems are geared to evoking some degree of beneficial mind/body relaxa- tion, and most include some version of the following: /C15mental time out /C15deep breathing /C15meditation and singular focus /C15gentle, repetitive exercise The best stress reduction syst...
 
 Metadata: {'producer': 'PDFlib+PDI 6.0.3 (SunOS)', 'creator': 'Adobe Acrobat 6.0', 'creationdate': '2006-10-16T20:19:33+02:00', 'moddate': '2006-10-16T22:03:45+02:00', 'source': 'data\The-Gale-Encyclopedia-of-Medicine-3rd-Edition-staibabussalamsula.ac_.id_.pdf', 'total_pages': 4505, 'page': 3590, 'page_label': '3561'}
