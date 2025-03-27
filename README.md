@@ -67,7 +67,7 @@ The chatbot will process all .pdf files in this folder.
 Run the initial script to process PDFs and create the FAISS vector store:
 
 ```bash
-python process_pdfs.py
+python create_memory_for_llm.py
 ```
 
 This script:
@@ -127,9 +127,9 @@ Performance depends on the quality and quantity of the PDF data.
 Contributing
 Feel free to submit issues or pull requests to improve the chatbot. Suggestions for additional features (e.g., multi-language support, image processing) are welcome!
 
-### License
+## License
 This project is licensed under the MIT License. See the  file for details.
 
-### Acknowledgments
+## Acknowledgments
 Built with LangChain, Hugging Face, and Streamlit.
 Inspired by the need for accessible medical information.
