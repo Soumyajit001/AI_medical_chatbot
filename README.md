@@ -15,13 +15,13 @@ Required Python libraries (listed in requirements.txt)
 Installation
 Clone the Repository
 
-### Step 1:
+## Step 1:
 ```bash
 git clone https://github.com/yourusername/ai-medical-chatbot.git
 cd ai-medical-chatbot
 ```
 
-### Step 2:
+## Step 2:
 Set Up a Virtual Environment (optional but recommended)
 
 ```bash
@@ -29,14 +29,14 @@ python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
 ```
 
-### Step 3:
+## Step 3:
 Install Dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### Step 4:
+## Step 4:
 requirement.txt
 
 ```bash
@@ -49,20 +49,20 @@ faiss-cpu
 PyPDF2
 ```
 
-### Step 5:
+## Step 5:
 Set Environment Variables
 Create a .env file in the root directory and add your Hugging Face API token:
 
 HF_TOKEN = huggingface_api_token
 
-### Step 6:
+## Step 6:
 Prepare Data
 
 Place your medical PDF files in the 'data/' directory.
 The chatbot will process all .pdf files in this folder.
 
 
-Usage:
+## Usage:
 1. Generate the Vector Store
 Run the initial script to process PDFs and create the FAISS vector store:
 
@@ -85,7 +85,11 @@ Launch the Streamlit app:
 streamlit run app.py
 ```
 
-Open your browser to http://localhost:8501.
+Open your browser to 
+```bash
+http://localhost:8501.
+```
+
 Enter your question in the chat input field and receive answers based on the PDF content.
 Project Structure
 
@@ -99,7 +103,7 @@ ai-medical-chatbot/
 ├── .env                  # Environment variables (e.g., HF_TOKEN)
 └── README.md             # This file
 
-How It Works:
+## How It Works:
 
 1. PDF Processing: PDFs are loaded and split into chunks of 500 characters with a 50-character overlap.
 2. Embedding Generation: Text chunks are converted into 384-dimensional vectors using Hugging Face embeddings.
@@ -107,9 +111,8 @@ How It Works:
 4. Query Handling: User questions are embedded, and the top 3 relevant chunks are retrieved from the vector store.
 5. Response Generation: The Mistral-7B model generates answers based on the retrieved context and a custom prompt.
 
-```bash
-Example:
-```
+
+## Example:
 Input: "What are the symptoms of diabetes?"
 Output: (Assuming relevant info exists in the PDFs)
 
@@ -117,16 +120,16 @@ Output: (Assuming relevant info exists in the PDFs)
 
 [Source: data/document1.pdf, page 5]"
 
-Limitations
+## Limitations
 Answers are limited to the content in the provided PDFs.
 Requires a stable internet connection for Hugging Face API calls.
 Performance depends on the quality and quantity of the PDF data.
 Contributing
 Feel free to submit issues or pull requests to improve the chatbot. Suggestions for additional features (e.g., multi-language support, image processing) are welcome!
 
-License
+### License
 This project is licensed under the MIT License. See the  file for details.
 
-Acknowledgments
+### Acknowledgments
 Built with LangChain, Hugging Face, and Streamlit.
 Inspired by the need for accessible medical information.
