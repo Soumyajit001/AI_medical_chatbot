@@ -156,5 +156,5 @@ Feel free to submit issues or pull requests to improve the chatbot. Suggestions 
 This project is licensed under the MIT License. See the  file for details.
 
 ## Acknowledgments
-Built with LangChain, Hugging Face, and Streamlit.
+Built with LangChain, RAG, Hugging Face, Faiss-cpu and Streamlit.
 Inspired by the need for accessible medical information.
