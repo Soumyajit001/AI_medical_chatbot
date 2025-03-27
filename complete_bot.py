@@ -13,7 +13,7 @@ DB_FAISS_PATH = "vectorstore/db_faiss"
 def get_vectorstore():
     embeddings = HuggingFaceEmbeddings(model_name = 'sentence-transformers/all-MiniLM-L6-v2')
     db=FAISS.load_local(DB_FAISS_PATH, embeddings, allow_dangerous_deserialization=True)
-    st.write("Vectorstore loaded successfully!")
+    # st.write("Vectorstore loaded successfully!")
     return db
 
 def set_custom_prompt(custom_prompt_template):
@@ -29,6 +29,29 @@ def load_llm(HUGGINGFACE_REPO_ID, HF_TOKEN):
                       "max_token": "512"}
     )
     return llm
+
+
+def format_source_documents(source_documents):
+    """Make the source documents clean, readable string."""
+    if not source_documents:
+        return "No source documents available."
+    
+    formatted_output = "### Source Documents\n"
+    for i, doc in enumerate(source_documents, 1):
+        # Extract content and metadata (if available)
+        content = doc.page_content if hasattr(doc, 'page_content') else "No content available"
+        metadata = doc.metadata if hasattr(doc, 'metadata') else {}
+        
+        # Truncate content if too long for better readability
+        content_preview = (content[:300] + "...") if len(content) > 300 else content
+        
+        formatted_output += f"##### *Document {i}:*\n"
+        formatted_output += f"- **Content Preview**: {content_preview}\n\n"
+        if metadata:
+            formatted_output += f"- **Metadata**: {metadata}\n"
+        formatted_output += "\n"
+    
+    return formatted_output
 
 
 def main():
@@ -79,7 +102,11 @@ def main():
             response = qa_chain.invoke({'query': prompt})
             result = response["result"]
             source_documents = response["source_documents"]
-            result_to_show = result + "\n\n" + str(source_documents)
+
+            formatted_sources = format_source_documents(source_documents)
+            result_to_show = f"{result}\n\n{formatted_sources}"
+
+            # result_to_show = result + "\n\n" + str(source_documents)
             # response="Hi, I am MediBot!"
             st.chat_message('assistant').markdown(result_to_show)
             st.session_state.messages.append({'role': 'assistent', 'content': result_to_show})

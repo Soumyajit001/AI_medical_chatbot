@@ -24,12 +24,23 @@ git clone https://github.com/yourusername/ai-medical-chatbot.git
 cd ai-medical-chatbot
 ```
 
+
+
 ## Step 2:
 Set Up a Virtual Environment (optional but recommended)
 
 ```bash
 python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
+```
+
+Create a conda environment after opening the repository
+```bash
+conda create -n medical_chatbot python=3.13 -y
+```
+
+```bash
+conda activate medical_chatbot
 ```
 
 ## Step 3:
