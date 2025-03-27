@@ -12,10 +12,13 @@ Custom Prompting: Ensures answers are strictly based on provided context, avoidi
 Python 3.8+
 Hugging Face account and API token (for accessing the LLM)
 Required Python libraries (listed in requirements.txt)
-Installation
-Clone the Repository
+
+
+## Installation
 
 ## Step 1:
+Clone the Repository
+
 ```bash
 git clone https://github.com/yourusername/ai-medical-chatbot.git
 cd ai-medical-chatbot
